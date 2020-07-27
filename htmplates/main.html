@@ -1,0 +1,57 @@
+<ion-view view-title="AES-256 CryptoJS">
+  <ion-content>
+
+<!-- ion-list  ng-show="vm.loginOk" 
+<pre> encAES:: {{ encAES  | json }} </pre>
+ -->
+	  
+<ion-list  ng-show="vm.inSession">
+  <ion-item  class="text-center">   
+  <h4> Accounts Found: {{ vm.accts.length }} </h4> 
+    <div class="row">    
+      <div class="col col-80"> 
+  <label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="text" ng-model="vm.dAES" placeholder="Search for Account">
+  </label>
+</div>
+<div class="col col-20"> 
+	<a href="#/app/details">          <button class="button button-small button-balanced"
+    ng-click="addAcct()"
+        > ADD Account </button> </a> 
+  </div></div>
+</ion-item>
+<ion-item  class="card list" ng-repeat="aa in vm.accts | filter:vm.dAES track by $index" >
+<!-- li class="animate-repeat" ng-repeat="friend in friends | filter:q as results track by friend.name" -->
+
+<div class="row">    
+      <div class="col col-90  button button-small "> 
+       {{ aa.acctnm }} </div>
+      <div class="col col-10"> 
+        	<a href="#/app/details">          
+                <button class="button button-small button-balanced"
+          ng-click="aaView(aa.aaIdx)"
+        > Show </button>
+         </a>
+          </div>
+    </div>
+    <div class="row fluid">    
+          <br>    Notes:<br> {{ aa.xtra }} </span>           </div>      </ion-item>
+  <ion-item  class="text-center">   
+	<a href="#/app/details">          <button class="button button-small button-balanced"
+    ng-click="addAcct()"
+        > ADD Account </button> </a>
+     </ion-item>
+  <ion-item  class="text-center">   
+ <label class="text-center button button-small button-stable">
+    All Account details are encrypted.<br>
+    The Account Names have been decrypted here<br>
+    for View Only.<br>
+    The database will always remain encrypted.
+  </label>
+  </ion-item>  
+    </ion-list>
+
+  </ion-content>
+
+</ion-view>
